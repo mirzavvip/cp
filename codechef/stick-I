@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+ll t, n, luas, ma1, ma2, tmp;
+int main(){
+	
+	cin >> t;
+	
+	while(t--){
+	cin >> n;
+	map<ll,ll>m;
+	ma1 = 0;
+	ma2 = 0;
+		for(int i = 0; i < n; i++){
+		cin >> tmp;
+		m[tmp]++;
+		if(m[tmp]>1&&tmp>ma1){ma2=ma1; ma1=tmp;m[tmp]-=2;}
+		else if(m[tmp]>1&&tmp>ma2){ma2=tmp;m[tmp]-=2;}
+		}
+	luas=ma1*ma2;
+	if(luas==0)cout << -1 << endl;
+	else cout << luas << endl;
+	}
+	
+	return 0;
+}
